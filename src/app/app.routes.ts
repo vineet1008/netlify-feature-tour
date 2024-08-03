@@ -3,6 +3,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { MyresumeComponent } from './components/myresume/myresume.component';
+import { AboutComponent } from './components/about/about.component';
 
 export const routes: Routes = [
   {  path:'',
@@ -20,6 +22,14 @@ export const routes: Routes = [
   },{
     path:'signup',
     component:SignupComponent,
+    pathMatch:'full'
+  },{
+    path:'myresume',
+    component:MyresumeComponent,
+    pathMatch:'full'
+  },{
+    path:'about',
+    component:AboutComponent,
     pathMatch:'full'
   }
 ];

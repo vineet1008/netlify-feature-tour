@@ -1,1 +1,49 @@
-<p>signup works!</p>
+<div class="bootstrap-wrapper">
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center">Sign Up Here!</h1>
+
+                <form (ngSubmit)="onSubmit()">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>UserName</mat-label>
+                        <input type="text" required matInput [(ngModel)]="signupCredentials.username" name="username"/>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="email" required matInput [(ngModel)]="signupCredentials.email" name="email"/>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" required matInput [(ngModel)]="signupCredentials.password" name="password"/>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="password" required matInput [(ngModel)]="signupCredentials.confirmPassword" name="confirmPassword"/>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Phone Number (optional)</mat-label>
+                        <input type="tel" matInput [(ngModel)]="signupCredentials.phoneNumber" name="phoneNumber"/>
+                    </mat-form-field>
+
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary">Sign Up</button>&nbsp;
+                        <button type="reset" mat-raised-button color="accent">Reset</button>
+                    </div>
+
+                    <p class="mt-5">UserName: {{ signupCredentials.username }}</p>
+                    <p>Email: {{ signupCredentials.email }}</p>
+                    <p>Password: {{ signupCredentials.password }}</p>
+                    <p>Confirm Password: {{ signupCredentials.confirmPassword }}</p>
+                    <p>Phone Number: {{ signupCredentials.phoneNumber }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+  

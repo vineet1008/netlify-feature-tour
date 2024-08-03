@@ -6,10 +6,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
+import { SignupComponent } from './components/signup/signup.component';
 import{MatFormFieldModule} from '@angular/material/form-field';
 import{MatInputModule} from '@angular/material/input';
 import{FormsModule, NgModel} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+import { MyresumeComponent } from './components/myresume/myresume.component';
 
 
 @Component({
@@ -25,11 +28,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule],
+    HttpClientModule,
+    SignupComponent,
+    MatCardModule,
+    MyresumeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 
 export class AppComponent {
-  title = 'Vineet Gupta';
+  title = 'Vineet';
 }
