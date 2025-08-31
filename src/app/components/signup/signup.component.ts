@@ -8,6 +8,7 @@ import { MatOptionModule } from '@angular/material/core';
 import {  CommonModule, JsonPipe } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signup',
@@ -29,7 +30,7 @@ imports: [
 export class SignupComponent {
   signupForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private http:HttpClient){
+  constructor(private fb: FormBuilder,private http:HttpClient,private snackBar:MatSnackBar){
     this.signupForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -59,13 +60,21 @@ export class SignupComponent {
       this.http.post('http://localhost:8080/restfulapi/signup/createuser',signupData,{responseType:'text'})
         .subscribe({
           next: (res) => {
-            console.log('Signup success:', res);
-            alert(res);
+            // console.log('Signup success:', res);
+            // alert(res);
+              this.snackBar.open(res, 'Close', {
+            duration: 3000,  // 3 seconds
+            panelClass: ['success-snackbar']  // optional CSS class
+            });
             this.signupForm.reset();
           },
           error: (err) => {
-            console.error('Signup error:', err);
-            alert('Signup failed!');
+            // console.error('Signup error:', err);
+            // alert('Signup failed!');
+              this.snackBar.open('Signup Failed! ' + err.message, 'Close', {
+              duration: 3000,
+            panelClass: ['error-snackbar']
+      });
           }
         });
    }

@@ -13,4 +13,15 @@ mat-card {
     display: block;
     width: 100%;
   }
+
+  .success-snackbar {
+  background-color: green;
+  color: white;
+}
+
+.error-snackbar {
+  background-color: red;
+  color: white;
+}
+
   
