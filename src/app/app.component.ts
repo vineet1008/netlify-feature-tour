@@ -9,7 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
 import{MatFormFieldModule} from '@angular/material/form-field';
 import{MatInputModule} from '@angular/material/input';
-import{FormsModule, NgModel} from '@angular/forms';
+import{FormsModule, NgModel, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MyresumeComponent } from './components/myresume/myresume.component';
@@ -31,7 +31,7 @@ import { MyresumeComponent } from './components/myresume/myresume.component';
     HttpClientModule,
     SignupComponent,
     MatCardModule,
-    MyresumeComponent],
+    MyresumeComponent, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
