@@ -1,49 +1,62 @@
 import { Component, OnInit } from '@angular/core';
 import{MatFormFieldModule} from '@angular/material/form-field';
 import{MatInputModule} from '@angular/material/input';
-import{FormsModule} from '@angular/forms';
+import{FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginService } from '../../services/login.service';
+import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatFormFieldModule,MatInputModule,FormsModule,MatButtonModule],
+  imports: [MatFormFieldModule,MatInputModule,FormsModule,MatButtonModule,ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent{
+login:FormGroup;
 
-  constructor(private loginService:LoginService){}
-  credentials={
-    username:'',
-    password:''
-  }
-
-  onSubmit(){
-
-    if((this.credentials.username!='' && this.credentials.password!='') && (this.credentials.username!=null && this.credentials.password!=null)){
-      console.log("Form is Submitted Successfully");
-    //  this.loginService.generatetoken(this.credentials).subscribe(
-    //   response=>{
-    //     console.log(response);
-    //   },
-    //   error=>{
-    //     console.log(error);
-    //   }
-      
-    //  );
-      
-
-    }else{
-      console.log("Please Enter the Username and Password !!");
-    }
-    // console.log()
-
-  }
-
-ngOnInit(): void {
-    
+constructor(private fb: FormBuilder,private http:HttpClient,private snackBar:MatSnackBar){
+  this.login=this.fb.group({
+    userName:['',Validators.required],
+    password:['',Validators.required]
+  });
 }
+
+logindata = {
+  userName:'',
+  password:''
+}
+
+onSubmit(){
+    if (this.login.valid) {
+      const signupData = this.login.value;
+      console.log('Login Form Submitted!', this.login.value);
+     this.http.post('http://localhost:8080/restfulapi/login',this.login,{responseType:'text'})
+        .subscribe({
+          next: (res) => {
+            // console.log('Signup success:', res);
+            // alert(res);
+              this.snackBar.open(res, 'Close', {
+            duration: 3000,  // 3 seconds
+            panelClass: ['success-snackbar']  // optional CSS class
+            });
+            this.login.reset();
+          },
+          error: (err) => {
+            // console.error('Signup error:', err);
+            // alert('Signup failed!');
+              this.snackBar.open('Login Failed! ' + err.message, 'Close', {
+              duration: 3000,
+            panelClass: ['error-snackbar']
+      });
+          }
+        });
+}
+}
+
+
+
 }

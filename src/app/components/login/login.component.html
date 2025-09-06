@@ -1,37 +1,26 @@
 <div class="bootstrap-wrapper">
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="text-center">Login Here !</h1>
 
+        <form [formGroup]="login" (ngSubmit)="onSubmit()">
+          <mat-form-field class="full-width">
+            <mat-label>User Name</mat-label>
+            <input matInput formControlName="userName" required>
+          </mat-form-field>
 
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h1 class="text-center">Login Here !</h1>
+          <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" required type="password">
+          </mat-form-field>
 
-                <form (ngSubmit)="onSubmit()">
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>UserName</mat-label>
-                        <input type="text" required matInput [(ngModel)]="credentials.username" name="username"/>
-
-
-                    </mat-form-field>
-
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input type="password" required matInput [(ngModel)]="credentials.password" name="password"/>
-
-
-                    </mat-form-field>
-
-                    <div class="container text-center">
-                        <button type="submit" mat-raised-button color="primary">Login</button>&nbsp;
-                        <button type="reset" mat-raised-button color="accent">Reset</button>
-
-                    </div>
-                    <p class="mt-5">UserName : {{ credentials.username }}</p>
-                    <p class="mt-5">Password : {{ credentials.password }}</p>
-
-
-                </form>
-            </div>
-        </div>
+          <div class="text-center">
+            <button mat-raised-button color="primary" type="submit">Login</button><br><br>
+            <button mat-raised-button color="accent" type="reset">Reset</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>

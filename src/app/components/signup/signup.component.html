@@ -4,63 +4,63 @@
             <div class="col-md-6 offset-md-3">
                 <h1 class="text-center">Sign Up Here!</h1>
 
-               <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-  <mat-form-field class="full-width">
-    <mat-label>First Name</mat-label>
-    <input matInput formControlName="firstName" required>
-  </mat-form-field>
+                <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                  <mat-form-field class="full-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName" required>
+                  </mat-form-field>
 
-  <mat-form-field class="full-width">
-    <mat-label>Last Name</mat-label>
-    <input matInput formControlName="lastName" required>
-  </mat-form-field>
-    <mat-form-field class="full-width">
-    <mat-label>User Name</mat-label>
-    <input matInput formControlName="userName" required>
-  </mat-form-field>
- <mat-form-field class="full-width">
-    <mat-label>Password</mat-label>
-    <input matInput formControlName="password" required>
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <mat-label>Email</mat-label>
-    <input matInput type="email" formControlName="email" required>
-  </mat-form-field>
+                  <mat-form-field class="full-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName" required>
+                  </mat-form-field>
+                    <mat-form-field class="full-width">
+                    <mat-label>User Name</mat-label>
+                    <input matInput formControlName="userName" required>
+                  </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" required>
+                  </mat-form-field>
+                  <mat-form-field class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="email" required>
+                  </mat-form-field>
 
-  <mat-form-field class="full-width">
-    <mat-label>Phone Number</mat-label>
-    <input matInput formControlName="phoneNo">
-  </mat-form-field>
+                  <mat-form-field class="full-width">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput formControlName="phoneNo">
+                  </mat-form-field>
 
-  <mat-form-field class="full-width">
-    <mat-label>Address</mat-label>
-    <textarea matInput formControlName="address" rows="3"></textarea>
-  </mat-form-field>
+                  <mat-form-field class="full-width">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput formControlName="address" rows="3"></textarea>
+                  </mat-form-field>
 
-  <mat-form-field class="full-width">
-    <mat-label>Status</mat-label>
-    <mat-select formControlName="isActive">
-      <mat-option [value]="1">Active</mat-option>
-      <mat-option [value]="0">Inactive</mat-option>
-    </mat-select>
-  </mat-form-field>
+                  <mat-form-field class="full-width">
+                    <mat-label>Status</mat-label>
+                    <mat-select formControlName="isActive">
+                      <mat-option [value]="1">Active</mat-option>
+                      <mat-option [value]="0">Inactive</mat-option>
+                    </mat-select>
+                  </mat-form-field>
 
-  <mat-form-field class="full-width">
-    <mat-label>Roles</mat-label>
-    <mat-select formControlName="role" multiple>
-      <mat-option *ngFor="let r of availableRoles" [value]="r">{{ r }}</mat-option>
-    </mat-select>
-  </mat-form-field>
+                  <mat-form-field class="full-width">
+                    <mat-label>Roles</mat-label>
+                    <mat-select formControlName="role" multiple>
+                      <mat-option *ngFor="let r of availableRoles" [value]="r">{{ r }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
 
 
 
-  <div class="text-center">
-    <button mat-raised-button color="primary" type="submit">Sign Up</button><br>
-    <button mat-raised-button color="accent" type="reset">Reset</button>
-  </div>
+                  <div class="text-center">
+                    <button mat-raised-button color="primary" type="submit">Sign Up</button><br>
+                    <button mat-raised-button color="accent" type="reset">Reset</button>
+                  </div>
 
-  <!-- <pre>{{ signupForm.value | json }}</pre> -->
-</form>
+                  <!-- <pre>{{ signupForm.value | json }}</pre> -->
+                </form>
 
             </div>
         </div>
